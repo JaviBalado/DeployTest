@@ -1,0 +1,31 @@
+.task-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+}
+
+.task-item .form-check {
+    margin-right: 15px;
+}
+
+.task-title {
+    flex-grow: 1;
+    margin-bottom: 0;
+}
+
+.task-completed {
+    text-decoration: line-through;
+    color: #6c757d;
+}
+
+.delete-btn {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    margin-left: 10px;
+}
+
+.task-date {
+    font-size: 0.75rem;
+    color: #6c757d;
+    margin-left: 10px;
+}

@@ -1,18 +1,28 @@
 const express = require('express');
+const cors = require('cors');
+const morgan = require('morgan');
+const path = require('path');
+const tasksRouter = require('./routes/tasks');
+
 const app = express();
 const port = process.env.PORT || 8080;
 
-// Middleware para parsear JSON
+// Middlewares
+app.use(cors());
+app.use(morgan('dev'));
 app.use(express.json());
+app.use(express.static(path.join(__dirname, 'public')));
 
-// Ruta principal
+// View engine
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+
+// Routes
+app.use('/api/tasks', tasksRouter);
+
+// Vista principal
 app.get('/', (req, res) => {
-    res.json({ message: '¡Servidor funcionando correctamente!' });
-});
-
-// Ruta de prueba
-app.get('/test', (req, res) => {
-    res.json({ message: 'Ruta de prueba' });
+    res.render('index');
 });
 
 // Iniciar el servidor
