@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8080;
 
 // Middleware para parsear JSON
 app.use(express.json());
@@ -16,6 +16,6 @@ app.get('/test', (req, res) => {
 });
 
 // Iniciar el servidor
-app.listen(port, () => {
+app.listen(port, '0.0.0.0', () => {
     console.log(`Servidor corriendo en http://localhost:${port}`);
 });
